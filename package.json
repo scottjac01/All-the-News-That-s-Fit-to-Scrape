@@ -1,20 +1,29 @@
 {
-  "name": "All-the-News-That-s-Fit-to-Scrape",
+  "name": "all-the-news-thats-fit-to-scrape",
   "version": "1.0.0",
-  "description": "",
+  "description": "Google News Scrapper",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamars2/All-The-News-Thats-Fit-To-Scrape.git"
+  },
   "author": "Scott Jackson",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scottjac01/All-the-News-That-s-Fit-to-Scrape.git"
+  },
+  "homepage": "https://github.com/scottjac01/All-the-News-That-s-Fit-to-Scrape.git#readme",
   "dependencies": {
-    "axios": "^0.16.2",
-    "body-parser": "^1.18.2",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.1",
-    "mongoose": "^4.12.0",
-    "morgan": "^1.9.0"
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.1",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.10.4",
+    "morgan": "^1.8.2",
+    "request": "^2.81.0"
   }
 }
