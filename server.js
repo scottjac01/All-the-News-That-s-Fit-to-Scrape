@@ -20,17 +20,22 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/DrudgeNewsScrape", {
-    useMongoClient: true
-});
+var localDatabaseUri = "mongodb://localhost/DrudgeNewsScraper";
+
+if (process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI);
+}
+else {
+    mongoose.connect(localDatabaseUri, {useMongoClient: true});
+}
 
 app.get("/scrape", function(req, res) {
-    request("https://news.google.com/", function(error, response, html) {
+    request("http://www.drudgereport.com", function(error, response, html) {
         var $ = cheerio.load(html);
         $("tr td tt b a").each(function(i, element) {
             var result = {};
-            result.title = $(element).attr("href");
-            result.link = $(element).text();
+            result.link = $(element).attr("href");
+            result.title = $(element).text();
             console.log(result);
             // Create a new Article using the `result` object built from scraping
             db.Article
